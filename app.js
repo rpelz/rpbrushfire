@@ -53,7 +53,8 @@ process.chdir(__dirname);
     }
   }
 
-
+  var appInsights = require("applicationinsights");
+  appInsights.setup("4f0e7fcf-de4c-40c4-9571-3a87f3de7435").start();
   // Start server
   sails.lift(rc('sails'));
 })();
