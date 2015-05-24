@@ -1,3 +1,4 @@
+/// <reference path="typings/node/node.d.ts"/>
 /**
  * app.js
  *
@@ -17,7 +18,12 @@
  * The same command-line arguments are supported, e.g.:
  * `node app.js --silent --port=80 --prod`
  */
-
+// Add AppInsight to the sails app
+var appInsights = require("applicationinsights");
+appInsights.setup("4f0e7fcf-de4c-40c4-9571-3a87f3de7435").start();
+// track a system startup event
+appInsights.client.trackEvent("start web app");
+  
 // Ensure we're in the project directory, so relative paths work as expected
 // no matter where we actually lift from.
 process.chdir(__dirname);
@@ -28,6 +34,7 @@ process.chdir(__dirname);
   try {
     sails = require('sails');
   } catch (e) {
+    appInsights.client.trackEvent("exception: sails has to be installed in project!");
     console.error('To run an app using `node app.js`, you usually need to have a version of `sails` installed in the same directory as your app.');
     console.error('To do that, run `npm install sails`');
     console.error('');
@@ -45,6 +52,7 @@ process.chdir(__dirname);
     try {
       rc = require('sails/node_modules/rc');
     } catch (e1) {
+      appInsights.client.trackEvent("exception: Could not find dependency: `rc`.");
       console.error('Could not find dependency: `rc`.');
       console.error('Your `.sailsrc` file(s) will be ignored.');
       console.error('To resolve this, run:');
@@ -53,12 +61,8 @@ process.chdir(__dirname);
     }
   }
 
-  var appInsights = require("applicationinsights");
-  appInsights.setup("4f0e7fcf-de4c-40c4-9571-3a87f3de7435").start();
-  // track a system startup event
-  appInsights.client.trackEvent("before sails.lift");
   // Start server
   sails.lift(rc('sails'));
   // track a system startup event
-  appInsights.client.trackEvent("after sails.lift");
+  appInsights.client.trackEvent("web app started");
 })();
