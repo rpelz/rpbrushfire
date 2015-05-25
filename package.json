@@ -34,5 +34,8 @@
     "url": "git://github.com/rpelz/rpbrushfire.git"
   },
   "author": "rpelz",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "sails-generate-static": "^0.11.1"
+  }
 }
