@@ -54,27 +54,24 @@
         </ul>
       </div>
     </nav>
+    <!-- SUBMIT NEW VIDEO -->
+   <section class="the-submit-video-form col-md-4">
+     <h3>See something missing?</h3>
+     <form>
+       <input class="form-control" type="text" name="title" placeholder="e.g.
+          My video title"/>
+       <input class="form-control" type="text" name="src"
+          placeholder="e.g. https://www.youtube.com/watch?v=5O434MiRBoY"/>
+       <button class="btn btn-success" >Submit Video</button>
+     </form>
+   </section>
     <!-- LIST OF VIDEOS -->
-    <section class="the-list-of-videos col-md-12">
-      <ul class="list-unstyled">
-        <li class="video">
-          <h2>PSY - GANGNAM STYLE (강남스타일) M/V</h2>
-          <iframe width="640" height="390" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0"
-          allowfullscreen></iframe>
-        </li>
-        <li class="video">
-          <h2>Justin Bieber - Baby ft. Ludacris</h2>
-          <iframe width="640" height="390" src="https://www.youtube.com/embed/kffacxfA7G4" frameborder="0"
-          allowfullscreen></iframe>
-        </li>
-        <li class="video">
-          <h2>Charlie bit my finger - again !</h2>
-          <iframe width="640" height="390" src="https://www.youtube.com/embed/_OBlgSz8sSM" frameborder="0"
-          allowfullscreen></iframe>
-        </li>
-      </ul>
-    </section>
-  </div>
+   <section class="the-list-of-videos col-md-12">
+     <div class="loading">Loading videos...</div>
+     <ul>
+       <!-- VIDEO DATA INSERTED HERE AS HTML -->
+     </ul>
+   </section>
       
     <!--
       Client-side Templates
